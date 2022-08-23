@@ -1,0 +1,131 @@
+$green: rgb(72, 185, 66)
+$blue: rgb(48, 112, 221)
+$red: rgb(196, 60, 60)
+    
+nav
+    z-index: 9999
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+    background-color: rgb(20, 20, 20)
+    padding: 0.75rem 0.5rem
+
+    a
+        font-size: 1.85rem
+        font-weight: 200
+        color: white
+        text-decoration: 0
+        transition: all
+        transition-duration: 200ms
+
+        &:hover
+            color: rgb(72, 226, 139)
+
+    form
+        display: flex
+        flex-direction: row
+
+        input
+            font-size: 1.05rem
+            padding: 0.25rem 0.5rem
+            border: 0
+            border-radius: 0.25rem 0 0 0.25rem
+
+            &:focus
+                outline: 0
+
+        button
+            padding: 0.35rem 0.75rem
+            border: 0
+            border-radius: 0 0.25rem 0.25rem 0
+            font-size: 1.25rem
+
+    div
+        display: flex
+        flex-direction: row
+        align-items: center
+        gap: 0.5rem
+
+        .link
+            font-size: 1.3rem
+
+        button
+            border: 0
+            color: white
+            padding: 0.5rem 1rem
+            border-radius: 0.3rem
+            transition: all
+            transition-duration: 200ms
+            font-size: 1.15rem
+
+            &:hover
+                cursor: pointer
+
+        .login-btn
+            background-color: $green
+            &:hover
+                background-color: darken($green, 10)
+
+        .register-btn
+            background-color: $blue
+            &:hover
+                background-color: darken($blue, 10)
+
+        .logout-btn
+            background-color: $red
+            &:hover
+                background-color: darken($red, 10)
+
+
+    
+.modal-container
+    position: fixed
+    z-index: 99
+    inset: 0
+    background-color: rgba(0, 0, 0, 0.75)
+    display: flex
+    justify-content: center
+    align-items: center
+
+.modal
+    width: 32rem
+    height: auto
+    padding: 1rem
+    background-color: rgb(38, 38, 38)
+    border-radius: 0.5rem
+    display: flex
+    flex-direction: column
+    gap: 0.25rem
+
+    button
+        border: 0
+        color: white
+        padding: 0.5rem 1rem
+        border-radius: 0.3rem
+        transition: all
+        transition-duration: 200ms
+        font-size: 1.15rem
+
+    .close-btn
+        background-color: $red
+
+        &:hover
+            background-color: darken($red, 10)
+            cursor: pointer
+
+    .toggle-btn
+        background-color: $blue
+
+        &:hover
+            background-color: darken($blue, 10)
+            cursor: pointer
+
+.modal-header
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+
+    span
+        font-size: 1.35rem

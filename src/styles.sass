@@ -1,4 +1,73 @@
+@import url("https://fonts.googleapis.com/css?family=Muli:200,300,400,600,700,800,900")
+
+$green: rgb(72, 185, 66)
+$blue: rgb(48, 112, 221)
+$red: rgb(196, 60, 60)
+$orange: rgb(207, 125, 63)
+
 html 
     background-color: rgb(23, 23, 23)
     color: rgb(240, 240, 240)
-    font-family: sans-serif
+    font-family: 'Muli', sans-serif
+
+body
+    margin: 0
+    padding: 0
+    overflow-x: hidden
+
+.button
+    border: 0
+    border-radius: 0.35rem
+    transition: all 200ms linear
+    color: white
+    
+    &:hover
+        cursor: pointer
+
+    &-green
+        @extend .button
+        background-color: $green
+        &:hover
+            background-color: darken($green, 10)
+
+    &-blue
+        @extend .button
+        background-color: $blue
+        &:hover
+            background-color: darken($blue, 10)
+
+    &-red
+        @extend .button
+        background-color: $red
+        &:hover
+            background-color: darken($red, 10)
+
+    &-orange
+        @extend .button
+        background-color: $orange
+        &:hover
+            background-color: darken($orange, 10)
+
+    &-large
+        @extend .button
+        width: 50rem
+    &-medium
+        @extend .button
+        width: 50rem
+    &-small
+        @extend .button
+        width: 50rem
+
+
+
+    button
+        background-color: $green
+        border-radius: 0.35rem
+        transition: all 200ms
+        padding: 0.5rem 2rem
+        width: 100%
+        margin-bottom: 1rem
+        color: white
+        font-weight: 400
+        font-size: 1.25rem
+

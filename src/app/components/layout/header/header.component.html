@@ -1,0 +1,60 @@
+<nav>
+  <a href="{{ siteUrl }}">articles.dev</a>
+  <form (submit)="searchArticle()">
+    <input
+      type="text"
+      id="search"
+      required
+      [(ngModel)]="searchInput"
+      name="search"
+      placeholder="Search..."
+    />
+    <button class="button-green" type="submit">Search</button>
+  </form>
+  <div>
+    <button
+      *ngIf="!userID"
+      class="login-btn"
+      (click)="toggleLoginModal($event)"
+    >
+      Login
+    </button>
+    <button
+      *ngIf="!userID"
+      class="register-btn"
+      (click)="toggleRegisterModal($event)"
+    >
+      Register
+    </button>
+    <a *ngIf="userID" class="link" href="{{ siteUrl }}/me/post">New Article</a>
+    <button *ngIf="userID" class="logout-btn" (click)="logout($event)">
+      Logout
+    </button>
+  </div>
+</nav>
+
+<div class="modal-container" *ngIf="loginModal">
+  <div class="modal">
+    <div class="modal-header">
+      <span>Login</span>
+      <button class="close-btn" (click)="closeModals($event)">X</button>
+    </div>
+    <app-login-form></app-login-form>
+    <button class="toggle-btn" (click)="toggleModals($event)">
+      Don't have an account? Register Here
+    </button>
+  </div>
+</div>
+
+<div class="modal-container" *ngIf="registerModal">
+  <div class="modal">
+    <div class="modal-header">
+      <span>Register</span>
+      <button class="close-btn" (click)="closeModals($event)">X</button>
+    </div>
+    <app-register-form></app-register-form>
+    <button class="toggle-btn" (click)="toggleModals($event)">
+      Already have an account? Login here
+    </button>
+  </div>
+</div>

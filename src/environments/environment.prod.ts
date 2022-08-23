@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'https://articlesdev-backend.herokuapp.com',
+  siteUrl: 'https://articlesdev.jesserobinson.dev',
 };
