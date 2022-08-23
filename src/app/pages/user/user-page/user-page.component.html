@@ -1,0 +1,48 @@
+<main>
+  <div class="title-section">
+    <span class="title-username">{{ username }}</span>
+    <span class="title-joined">Date Joined: {{ dateJoined }}</span>
+    <span class="title-count">Articles: {{ userArticleCount }}</span>
+    <span class="title-count">Comments: {{ userCommentCount }}</span>
+  </div>
+  <div class="sections">
+    <div class="articles-section">
+      <span>{{ username }}'s Articles</span>
+      <div class="section-nav">
+        <button
+          *ngIf="userArticlePage > 1"
+          (click)="getUserArticles($event, userArticlePage - 1)"
+        >
+          <
+        </button>
+        <span>{{ userArticlePage }}</span>
+        <button
+          *ngIf="userArticlePage * 10 < userArticleCount"
+          (click)="getUserArticles($event, userArticlePage + 1)"
+        >
+          >
+        </button>
+      </div>
+      <app-article-list [articles]="userArticles"></app-article-list>
+    </div>
+    <div class="comments-section">
+      <span>{{ username }}'s Comments</span>
+      <div class="section-nav">
+        <button
+          *ngIf="userCommentPage > 1"
+          (click)="getUserComments($event, userCommentPage - 1)"
+        >
+          <
+        </button>
+        <span>{{ userCommentPage }}</span>
+        <button
+          *ngIf="userCommentPage * 10 < userCommentCount"
+          (click)="getUserComments($event, userCommentPage + 1)"
+        >
+          >
+        </button>
+      </div>
+      <app-comment-list [comments]="userComments"></app-comment-list>
+    </div>
+  </div>
+</main>

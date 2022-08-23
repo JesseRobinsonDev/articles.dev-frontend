@@ -1,0 +1,16 @@
+<ul>
+  <li *ngFor="let comment of comments">
+    <app-comment-card
+      [props]="{
+        authorID: comment.authorID,
+        authorUser: comment.authorUsername,
+        articleTitle: comment.articleTitle,
+        articleID: comment.aritlceID,
+        date: comment.dateCreated,
+        id: comment.commentID,
+        body: comment.commentBody,
+        page: page
+      }"
+    ></app-comment-card>
+  </li>
+</ul>

@@ -1,0 +1,47 @@
+<main>
+  <form (ngSubmit)="postArticle()">
+    <div class="form-field-group">
+      <label for="title">Article Title</label>
+      <input type="text" id="title" required [(ngModel)]="title" name="title" />
+    </div>
+    <div class="form-field-group">
+      <label>Article Body</label>
+      <div class="NgxEditor__Wrapper black">
+        <ngx-editor-menu
+          class="test"
+          [editor]="editor"
+          [toolbar]="toolbar"
+        ></ngx-editor-menu>
+        <ngx-editor
+          [editor]="editor"
+          [(ngModel)]="html"
+          name="body"
+        ></ngx-editor>
+      </div>
+    </div>
+    <div class="form-field-group">
+      <label for="tagInput">Article Tags</label>
+      <div class="tag-input">
+        <input
+          type="text"
+          id="tagInput"
+          [(ngModel)]="tagInput"
+          name="tagInput"
+        />
+        <button class="green" (click)="addTag($event)">+</button>
+      </div>
+      <ul>
+        <li *ngFor="let tag of tags">
+          <span class="tag">{{ tag }}</span>
+          <button
+            class="red remove-tag-button"
+            (click)="removeTag($event, tag)"
+          >
+            X
+          </button>
+        </li>
+      </ul>
+    </div>
+    <button class="green" type="sumbit">Post Article</button>
+  </form>
+</main>

@@ -1,0 +1,17 @@
+<ul>
+  <li *ngFor="let article of articles">
+    <app-article-card
+      (deleteArticleEvent)="deleteArticle($event)"
+      [props]="{
+        authorID: article.authorID,
+        authorUser: article.authorUsername,
+        title: article.articleTitle,
+        tags: article.articleTags,
+        date: article.dateCreated,
+        commentCount: article.commentCount,
+        id: article.articleID,
+        body: article.articleBody
+      }"
+    ></app-article-card>
+  </li>
+</ul>

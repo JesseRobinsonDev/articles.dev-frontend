@@ -1,0 +1,42 @@
+<div class="article-container">
+  <div class="article-data">
+    <a class="title" href="{{ siteUrl }}/article/{{ props.id }}">{{
+      props.title
+    }}</a>
+    <div class="posting-info">
+      <a class="author" href="{{ siteUrl }}/user/{{ props.authorID }}">{{
+        props.authorUser
+      }}</a>
+      <span class="date">{{ createDateText(props.date) }}</span>
+    </div>
+    <p>{{ htmlReplacer(props.body) }}</p>
+    <ul>
+      <li *ngFor="let tag of props.tags">{{ tag }}</li>
+    </ul>
+  </div>
+  <div class="article-buttons">
+    <a
+      *ngIf="props.authorID == viewerID"
+      href="{{ siteUrl }}/me/edit/{{ props.id }}"
+      class="button-orange"
+      >Edit</a
+    >
+    <button
+      *ngIf="props.authorID == viewerID"
+      class="button-red"
+      (click)="toggleDeleteModal($event)"
+    >
+      Delete
+    </button>
+  </div>
+</div>
+
+<div *ngIf="deleteModal" class="modal-container">
+  <div class="modal">
+    <span>Confirm Deletion of {{ props.title }}</span>
+    <button class="button-green" (click)="toggleDeleteModal($event)">
+      Cancel
+    </button>
+    <button class="button-red" (click)="deleteArticle($event)">Delete</button>
+  </div>
+</div>

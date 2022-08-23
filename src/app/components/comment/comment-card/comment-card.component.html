@@ -1,0 +1,38 @@
+<div class="comment">
+  <div class="comment-header">
+    <a>{{ props.authorUser }}</a>
+    <div class="comment-buttons">
+      <button
+        *ngIf="editingComment"
+        (click)="editComment($event)"
+        class="button-green"
+      >
+        Confirm
+      </button>
+      <button
+        *ngIf="editingComment"
+        (click)="toggleEditComment($event)"
+        class="button-orange"
+      >
+        Cancel
+      </button>
+      <button
+        *ngIf="!editingComment && props.authorID == viewerID"
+        (click)="toggleEditComment($event)"
+        class="button-orange"
+      >
+        Edit
+      </button>
+      <button
+        *ngIf="props.authorID == viewerID"
+        (click)="deleteComment($event, props.id)"
+        class="button-red"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+  <span>{{ createDateText(props.date) }}</span>
+  <p *ngIf="!editingComment">{{ props.body }}</p>
+  <textarea *ngIf="editingComment" [(ngModel)]="editCommentBody"></textarea>
+</div>

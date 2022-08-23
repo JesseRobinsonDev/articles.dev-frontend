@@ -1,0 +1,92 @@
+$green: rgb(72, 185, 66)
+$blue: rgb(48, 112, 221)
+$red: rgb(196, 60, 60)
+    
+main
+    padding: 2rem
+
+.black
+    color: black
+
+form
+    display: flex
+    flex-direction: column
+    gap: 0.5rem
+
+    .form-field-group
+        display: flex
+        flex-direction: column
+        gap: 0.1rem
+        
+        label
+            font-size: 1.45rem
+            font-weight: 300
+            
+        input
+            padding: 0.35rem 0.5rem
+            font-size: 1.15rem
+            border-radius: 0.3rem
+
+            &:focus
+                outline: none
+        
+        .tag-input
+            display: flex
+            flex-direction: row
+            align-items: center
+            gap: 0.25rem
+
+            button
+                padding: 0.3rem 0.5rem
+                height: full
+
+        ul
+            display: flex
+            flex-direction: row
+            flex-wrap: wrap
+            list-style: none
+            gap: 0.35rem
+            margin: 0
+            padding: 0
+
+            li
+                display: flex
+                flex-direction: row
+                align-items: center
+                gap: 0.1rem
+
+                .tag
+                    padding: 0.25rem 0.25rem
+                    background-color: $blue
+                    border-radius: 0.25rem
+                    font-size: 1.05rem
+                    font-weight: 600
+
+    button
+        border: 0
+        padding: 0.45rem
+        font-weight: 400
+        font-size: 1.35rem
+        color: white
+        border-radius: 0.3rem
+        transition: all
+        transition-duration: 200ms
+
+        &:hover
+            cursor: pointer
+
+.green
+    background-color: $green
+
+    &:hover
+        background-color: darken($green, 10)
+
+.red
+    background-color: $red
+    
+    &:hover
+        background-color: darken($red, 10)
+        
+.remove-tag-button
+    font-size: 1.05rem
+    padding: 0.3rem 0.25rem
